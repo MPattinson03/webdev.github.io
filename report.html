@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Project</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon.png">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet">
+</head>
+
+<body>
+    <header id="masthead" class="site-header" data-anchor-target=".hero" data-top="background: rgba(253, 220, 242, 0); padding: 30px 0; box-shadow: 0px 0px 20px 6px rgba(0, 0, 0, 0);"
+    data-top-bottom="background: rgba(253, 220, 242, 1); padding: 10px 0; box-shadow: 0px 0px 20px 6px rgba(0, 0, 0, 0.2);">
+        <nav id="primary-navigation" class="site-navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <a href="#home" class="site-logo"><img src="assets/img/myLogo.png" alt="logo"></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="parallax">
+        <section id="service" class="site-section section-inspiration overlay text-center">
+            <div class="container">
+                <div class="row">
+                    <img src="assets/img/boxify.jpeg" alt="boxify">
+                </div>
+            </div>
+        </section>
+    </section>  
+
+    <footer class="site-footer">
+        <p class="copyright">&copy; 2025 Megan Pattinson | <a href="index.html">Back to Home</a></p>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            var scrolled = window.scrollY;
+            document.querySelectorAll('.parallax').forEach(function(el) {
+                el.style.backgroundPositionY = -(scrolled * 0.5) + 'px';
+            });
+        });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-progressbar/0.9.0/bootstrap-progressbar.min.js"></script>
+    <script src="assets/js/jquery.countTo.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

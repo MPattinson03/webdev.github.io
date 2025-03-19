@@ -1,16 +1,16 @@
 $(function() {
 
+    // Toggle menu on click
     $('.navbar-toggle').click(function() {
         $(this).toggleClass('act');
-            if($(this).hasClass('act')) {
-                $('.main-menu').addClass('act');
-            }
-            else {
-                $('.main-menu').removeClass('act');
-            }
+        if ($(this).hasClass('act')) {
+            $('.navbar-nav').addClass('act');  
+        } else {
+            $('.navbar-nav').removeClass('act');
+        }
     });
-
-    //jQuery for page scrolling feature - requires jQuery Easing plugin
+    
+    // Smooth scrolling for page anchor links
     $(document).on('click', '.page-scroll a', function(event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
@@ -19,71 +19,29 @@ $(function() {
         event.preventDefault();
     });
 
-    // Highlight the top nav as scrolling occurs
+    // Initialize scrollspy to track active navigation items
     $('body').scrollspy({
-        target: '.site-header',
+        target: '.navbar', 
         offset: 10
     });
 
-	/* Progress bar */
     var $section = $('.section-skills');
+
+    // Function to load progress bars
     function loadDaBars() {
-	    $('.progress .progress-bar').progressbar({
-	        transition_delay: 500
-	    });
+        $('.progress .progress-bar').progressbar({
+            transition_delay: 500
+        });
     }
-    
+
+    // Trigger progress bars on scroll
     $(document).bind('scroll', function(ev) {
         var scrollOffset = $(document).scrollTop();
         var containerOffset = $section.offset().top - window.innerHeight;
         if (scrollOffset > containerOffset) {
             loadDaBars();
-            // unbind event not to load scrolsl again
             $(document).unbind('scroll');
         }
     });
 
-    /* Counters  */
-    if ($(".section-counters .start").length>0) {
-        $(".section-counters .start").each(function() {
-            var stat_item = $(this),
-            offset = stat_item.offset().top;
-            $(window).scroll(function() {
-                if($(window).scrollTop() > (offset - 1000) && !(stat_item.hasClass('counting'))) {
-                    stat_item.addClass('counting');
-                    stat_item.countTo();
-                }
-            });
-        });
-    };
-
-	// another custom callback for counting to infinity
-	$('#infinity').data('countToOptions', {
-		onComplete: function (value) {
-		  count.call(this, {
-		    from: value,
-		    to: value + 1
-		  });
-		}
-	});
-
-	$('#infinity').each(count);
-
-	function count(options) {
-        var $this = $(this);
-        options = $.extend({}, options || {}, $this.data('countToOptions') || {});
-        $this.countTo(options);
-    }
-
-    // Navigation overlay
-    var s = skrollr.init({
-            forceHeight: false,
-            smoothScrolling: false,
-            mobileDeceleration: 0.004,
-            mobileCheck: function() {
-                //hack - forces mobile version to be off
-                return false;
-            }
-    });
-    
 });
